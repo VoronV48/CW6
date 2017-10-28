@@ -1,0 +1,37 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Post Bord', root_path, class: 'navbar-brand' %>
+      <% if user_signed_in? %>
+        <% if current_user.admin?%>  
+          <%= link_to 'Admin', admin_root_url, class: 'navbar-brand' %>
+        <% end -%>
+      <% end -%>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <p class="navbar-text">
+            Hello, <%= link_to current_user.name, user_path(current_user), class: 'navbar-link' %>
+          </p>
+          <table class="navbar-text">
+            <th><%= link_to 'Edit profile ', edit_user_registration_path(current_user) %></th>
+            <th><%= link_to 'Create post ', new_post_path(current_user) %></th>
+            <th class="divider"></th>
+            <th><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></th>
+          </table>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+          <%= link_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
