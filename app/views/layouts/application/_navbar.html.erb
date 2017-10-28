@@ -23,7 +23,7 @@
           </p>
           <table class="navbar-text">
             <th><%= link_to 'Edit profile ', edit_user_registration_path(current_user) %></th>
-
+            <th><%= link_to 'New Photo', new_photo_path(current_user) %></th>
             <th class="divider"></th>
             <th><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></th>
           </table>

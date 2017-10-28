@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<h1>
+		
+	<%= @user.name %>'s profile <%= link_to 'Edit', edit_user_registration_path(current_user) %> 
+	</h1>	
+	<h1>User photo</h1>
+	<table class="table table-striped table-bordered">
+		<tr>
+		 	<td>Photo</td>
+			<td>Name</td>
+			<td>Actions</td>
+		</tr>
+		<% @photos.each do |photo| %>
+		<tr>
+			<td><%= image_tag photo.image.url(:thumb) %></td>	
+			<td><%= link_to photo.name, photo if can? :read, photo %></td> 
+			<td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, photo %></td>	
+		</tr>
+		<% end %><br />
+	</table>	
+</div>
