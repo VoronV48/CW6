@@ -1,0 +1,11 @@
+
+<%= form_for @comment  do |f| %>
+    <div>
+      Text: <%= f.text_area :text %>
+    </div>
+    <div>
+      Valuation: <%= f.select :score, [[1],[2],[3],[4],[5]] %>	
+    </div>
+
+    <%= f.submit %>
+<% end %>

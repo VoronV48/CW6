@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :rememberable,  :validatable
   validates :name, presence: true, length: {maximum: 50}
   has_many :photos
-
+  has_many :comments
   def user?
   	!self.admin?	
   end 		

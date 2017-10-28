@@ -8,5 +8,7 @@
   <strong>By:</strong>
   <%= @photo.user.name %>
 </h2>
+ <h3>Add a comment:</h3>
+ <%= render 'comments/form' %>
 
 <%= link_to 'Back', photos_path %>

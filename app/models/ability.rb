@@ -9,7 +9,7 @@ class Ability
         can :manage, :all
       elsif user.user?
         can :read, :all
-        can :new, Photo
+        can :create, Photo
         can :destroy, Photo, :user_id => user.id      
       else
         can :read, :all

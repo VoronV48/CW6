@@ -10,7 +10,7 @@
       <%= link_to 'Post Bord', root_path, class: 'navbar-brand' %>
       <% if user_signed_in? %>
         <% if current_user.admin?%>  
-       
+           <%= link_to 'Admin', admin_root_url, class: 'navbar-brand' %>
         <% end -%>
       <% end -%>
     </div>

@@ -6,15 +6,14 @@ class PhotosController < InheritedResources::Base
   def show
   	authorize! :read, @photo
   	@photo = Photo.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
-  	authorize! :create, @photo
     @photo = Photo.new
   end
 
   def create
-  	authorize! :create, @photo
   	@photo = current_user.photos.create(photo_params)
     @photo.save
     redirect_to root_path
