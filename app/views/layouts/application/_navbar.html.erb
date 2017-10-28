@@ -10,7 +10,7 @@
       <%= link_to 'Post Bord', root_path, class: 'navbar-brand' %>
       <% if user_signed_in? %>
         <% if current_user.admin?%>  
-          <%= link_to 'Admin', admin_root_url, class: 'navbar-brand' %>
+       
         <% end -%>
       <% end -%>
     </div>
@@ -23,7 +23,7 @@
           </p>
           <table class="navbar-text">
             <th><%= link_to 'Edit profile ', edit_user_registration_path(current_user) %></th>
-            <th><%= link_to 'Create post ', new_post_path(current_user) %></th>
+
             <th class="divider"></th>
             <th><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></th>
           </table>

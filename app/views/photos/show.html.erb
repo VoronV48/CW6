@@ -7,8 +7,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @photo.user %>
+  <%= @photo.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>
